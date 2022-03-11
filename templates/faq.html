@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>FAQ's</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@700&family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+	.logo{
+		padding-right: 10px;
+		height: 70px;
+		width: 70px;
+	}
+	.company{
+		font-family: 'PT Serif', serif;	
+		font-style: normal;
+		font-weight: 600;
+		font-size: 45px;
+		color: #414141
+	}
+	.nav-item{
+		padding: 0 45px;
+		font-size: 20px;
+	}
+	.dropdown-item{
+		padding:10px;
+		font-style: italic;
+	}
+	.dropdown-logo{
+		justify-content: flex-start;
+		margin-right: 15px;
+		height: 20px;
+		width: 20px;
+	}
+
+/*FAQ Styling starts heree !!!! */
+	.container-fluid{
+		height: 850px;
+		background: linear-gradient(135deg, #00095C 0%, rgba(0, 18, 178, 0.75) 100%); 		
+	}
+	*::before,
+	*::after{
+		margin: 0;
+		padding: 0;
+		box-sizing: inherit;
+	}
+
+	html{
+		font-size: 20px;
+		box-sizing: border-box;
+	}
+	section{
+		height: 100vh;
+		width: 80%;
+		position: absolute;
+		left: 10%;	
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.faq-title{
+		font-family: 'PT Sans Caption', sans-serif;
+		position: relative;
+		text-align: center;
+		top: 50px;
+		color: white;
+		font-size: 50px;
+	}
+	.add-img{
+		height: 28px;
+		width: 33px;
+		margin: 5px;
+	}
+	.minus-img{
+		height: 28px;
+		width: 33px;
+		margin: 5px;
+		display: none;
+	}
+	.accordian{
+		padding: 4px;
+		border-radius: 10px;
+		background-color: white;		
+	}
+	.accordian-item{		
+		border-radius: 10px;
+		margin-bottom: 1rem;
+		padding: .2rem;
+	}
+	.accordian-link{
+		font-size: 1.2rem;
+		color: #4B4949;	
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.accordian-link:hover {
+	text-decoration: none; 
+	}	
+	.answer{
+		margin:4px 8px;
+		max-height: 0;
+		overflow: hidden;
+		position: relative;
+		border-radius: 8px;
+		background-color: #CDCDCD;
+		transition: max-height 650ms;
+	}
+	.answer p{		
+		padding: 0 20px;
+		font-style: italic;
+	}
+	
+	.answer::before{
+		content: "";
+		position: absolute;
+		width: .6rem;
+		height: 90%;
+		background-color: #A742E3;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+	}
+	.accordian-item:target .answer{
+		max-height: 20rem;
+	}
+	.accordian-item:target .accordian-link .add-img{
+		display: none;
+	}
+	.accordian-item:target .accordian-link .minus-img{
+		display: block;
+	}
+
+</style>
+  </head>
+  <body>
+  	<header>	 	
+	 	<nav class="navbar navbar-expand-lg navbar-light" style="box-shadow: 0px 4px 35px 2px rgba(0, 0, 0, 0.18);">	 
+	 		<img class="logo" src="static/images/logo.jpg" alt="Company Logo">
+	 		<h3 class="company">E-Fundraiser</h3> 		
+	  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+	    	<span class="navbar-toggler-icon"></span>
+	  		</button>
+	  		<div class="collapse navbar-collapse" id="navbarNavDropdown" style="justify-content: flex-end;">
+			    <ul class="navbar-nav">
+				    <li class="nav-item active">
+				        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="#">About Us</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="#">Investors</a>
+				      </li>
+				      <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          More
+				        </a>
+				        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="#"><img class="dropdown-logo" src="static/images/faq-logo.png" alt="FAQ Logo">FAQ's</a>
+				          <a class="dropdown-item" href="#"><img class="dropdown-logo" src="static/images/settings-logo.png" alt="Settings Logo">Settings</a>
+				          <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="#"><img class="dropdown-logo" src="static/images/signout-logo.png" alt="Signout Logo">Signout</a>
+				        </div>
+				      </li>
+		    	</ul>
+	  		</div>
+		</nav>
+	</header>
+
+	<div class="container-fluid">
+		<p class="faq-title">FAQ's</p>
+		<section>			
+			<div class="accordian">
+				<div class="accordian-item" id="ques1">
+					<a href="#ques1" class="accordian-link">
+						<b>Q1. What are venture capitalists?</b>
+						<img src="static/images/add.png" class="add-img">
+						<img src="static/images/minus.png" class="minus-img">
+					</a>
+					<div class="answer">
+						<p>
+						A venture capitalist is a person or firm that provides new businesses with management assistance and investment capital to get things running smoothly. As compensation, the individual or company providing the funds gets a stake in the new business and its earnings. The size of this equity position is typically determined as being proportional to the amount invested and the risk involved with it.
+						</p>
+					</div>
+				</div>
+
+				<div class="accordian-item" id="ques2">
+					<a href="#ques2" class="accordian-link">
+						<b>Q2. What does a venture capitalist look for when making an investment?</b>
+						<img src="static/images/add.png" class="add-img">
+						<img src="static/images/minus.png" class="minus-img" >
+					</a>
+					<div class="answer">
+						<p>
+						A venture capitalist is a person or firm that provides new businesses with management assistance and investment capital to get things running smoothly. As compensation, the individual or company providing the funds gets a stake in the new business and its earnings. The size of this equity position is typically determined as being proportional to the amount invested and the risk involved with it.
+						</p>
+					</div>
+				</div>
+
+				<div class="accordian-item" id="ques3">
+					<a href="#ques3" class="accordian-link">
+						<b>Q3. What is the difference between venture capital & private equity?</b>
+						<img src="static/images/add.png" class="add-img">
+						<img src="static/images/minus.png" class="minus-img">
+					</a>
+					<div class="answer">
+						<p>
+						A venture capitalist is a person or firm that provides new businesses with management assistance and investment capital to get things running smoothly. As compensation, the individual or company providing the funds gets a stake in the new business and its earnings. The size of this equity position is typically determined as being proportional to the amount invested and the risk involved with it.
+						</p>
+					</div>
+				</div>
+
+				<div class="accordian-item" id="ques4">
+					<a href="#ques4" class="accordian-link">
+						<b>Q4. What does a venture capitalist look for when making an investment?</b>
+						<img src="static/images/add.png" class="add-img">
+						<img src="static/images/minus.png" class="minus-img">
+					</a>
+					<div class="answer">
+						<p>
+						A venture capitalist is a person or firm that provides new businesses with management assistance and investment capital to get things running smoothly. As compensation, the individual or company providing the funds gets a stake in the new business and its earnings. The size of this equity position is typically determined as being proportional to the amount invested and the risk involved with it.
+						</p>
+					</div>
+				</div>
+
+				<div class="accordian-item" id="ques5">
+					<a href="#ques5" class="accordian-link">
+						<b>Q5. Do VC mentor and help scale up the company ?</b>
+						<img src="static/images/add.png" class="add-img">
+						<img src="static/images/minus.png" class="minus-img">
+					</a>
+					<div class="answer">						
+						<p>
+						A venture capitalist is a person or firm that provides new businesses with management assistance and investment capital to get things running smoothly. As compensation, the individual or company providing the funds gets a stake in the new business and its earnings. The size of this equity position is typically determined as being proportional to the amount invested and the risk involved with it.
+						</p>						
+					</div>
+				</div>
+
+				<div class="accordian-item" id="ques6">
+					<a href="#ques6" class="accordian-link">
+						<b>Q6. What is Term Sheet?</b>
+						<img src="static/images/add.png" class="add-img">
+						<img src="static/images/minus.png" class="minus-img">
+					</a>
+					<div class="answer">
+						<p>
+						A venture capitalist is a person or firm that provides new businesses with management assistance and investment capital to get things running smoothly. As compensation, the individual or company providing the funds gets a stake in the new business and its earnings. The size of this equity position is typically determined as being proportional to the amount invested and the risk involved with it.
+						</p>
+					</div>
+				</div>
+
+			</div>	
+		</section>
+	</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-fundraiser</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="static/css/startup_form.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="nav-compact">
+          <a class="navbar-brand d-flex" href="#"><img src="static\images\logo.svg" class="logo"><span
+              class="nav-title">E-fundraiser</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Investors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">FAQ</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="static/images/profile_avator.svg" class="nav-avator">
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end dropdown-menu-lg-start"
+                aria-labelledby="navbarDropdownMenuLink">
+                <li>
+                  <a href="#" class="dropdown-item">Home</a>
+                </li>
+                <li>
+                  <a href="#" class="dropdown-item">Investors</a>
+                </li>
+                <li>
+                  <a href="#" class="dropdown-item">About us</a>
+                </li>
+                <li>
+                  <a href="#" class="dropdown-item">FAQ</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="inner-wrapper d-flex">
+      <div class="sidebar">
+        <ul class="form-indexes">
+          <li><a href="#basic-details">Basic Details</a></li>
+          <li><a href="#founders">Founders</a></li>
+          <li><a href="#business_details">Business Details</a></li>
+          <li><a href="#valuation">Valuation & Funds</a></li>
+          <li><a href="#investments">Previous Investments</a></li>
+          <li><a href="#uploads">Uploads</a></li>
+        </ul>
+      </div>
+      <div class="content w-100">
+        <div class="h2 title mx-auto">Register Startup</div>
+        <form class="form mx-auto">
+          <section class="basic-details-section d-flex" id="basic-details">
+            <div class="h6 section-heading w-100">Basic Details</div>
+            <div class="left-fields">
+              <div class="form-group">
+                <label><small>Title</small></label>
+                <input type="text" name="title" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label><small>Email</small></label>
+                <input type="email" name="email" class="form-control">
+              </div>
+
+              <div class="short-fields">
+                <div class="form-group">
+                  <label><small>Start Date</small></label>
+                  <input type="date" name="start-date" class="form-control">
+                </div>
+
+                <div class="form-group right-grp">
+                  <label><small>Contact no.</small></label>
+                  <input type="tel" name="contact-no" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="right-fields">
+              <div class="form-group">
+                <label><small>Firm Name</small></label>
+                <input type="text" name="title" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label><small>Address</small></label>
+                <textarea name="address" class="form-control address"></textarea>
+              </div>
+            </div>
+          </section>
+
+          <section class="founders-section" id="founders">
+            <div class="h6 section-heading">Founders</div>
+            <div class="form-group founder-field">
+              <input type="text" name="founder_1" class="form-control">
+            </div>
+            <div class="add-founder btn btn-primary">Add co-founder + </div>
+          </section>
+
+          <section class="business-details-section" id="business_details">
+            <div class="h6 section-heading">Business Details</div>
+            <div class="form-group">
+              <label><small>Brief Summary</small></label>
+              <textarea name="brief_summary" class="form-control" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+              <label><small>Details</small></label>
+              <textarea name="details" class="form-control" rows="8"></textarea>
+            </div>
+          </section>
+
+          <section class="valuation-section d-flex" id="valuation">
+            <div class="h6 section-heading w-100">Valuation and Funds</div>
+            <div class="form-group">
+              <label><small>Current Valuation</small></label>
+              <input type="text" name="current_valuation" class="form-control">
+            </div>
+            <div class="form-group">
+              <label><small>Expected Fund</small></label>
+              <input type="text" name="expected_fund" class="form-control">
+            </div>
+          </section>
+
+          <section class="investments-section" id="investments">
+            <div class="h6 section-heading w-100">Previous Investments</div>
+            <div class="investor-fields">
+              <div class="form-group">
+                <label><small>Investor</small></label>
+                <input type="text" name="investor_1" class="form-control">
+              </div>
+              <div class="lower-fields w-100 p-0">
+                <div class="form-group">
+                  <label><small>Stake</small></label>
+                  <input type="number" name="stake_1" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label><small>Amount</small></label>
+                  <input type="number" name="amount_1" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="add-btn btn btn-primary add-investor-btn">Add investor + </div>
+          </section>
+
+          <section class="uploads-section w-100" id="uploads">
+            <div class="h6 section-heading w-100">Uploads</div>
+            <div class="form-group">
+              <label><small>Documents</small></label>
+              <div class="file upload-btn btn btn-primary"><input type="file" name="documents" multiple>
+                <!-- <span>Documents +</span> -->
+              </div>
+            </div>
+            <div class="form-group">
+              <label><small>Images</small></label>
+              <div class="file upload-btn btn btn-primary"><input type="file" name="images" multiple>
+                <!-- <span>Images +</span> -->
+              </div>
+            </div>
+          </section>
+
+          <section class="form-group submit-section w-100">
+            <input type="reset" value="Cancel" class="form-control btn btn-secondary">
+            <input type="submit" value="Register Startup" class="form-control btn btn-primary">
+          </section>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $('.add-btn').click(function () {
+      let index = $('.investor-fields').length + 1;
+      $(this).before('\
+					<div class="investor-fields">\
+						<div class="form-group">\
+							<label><small>Investor</small></label>\
+							<input type="text" name="investor_' + index + '" class="form-control">\
+						</div>\
+						<div class="lower-fields w-100 p-0">\
+							<div class="form-group">\
+								<label><small>Stake</small></label>\
+								<input type="number" name="stake_' + index + '" class="form-control">\
+							</div>\
+							<div class="form-group">\
+								<label><small>Amount</small></label>\
+								<input type="number" name="amount_' + index + '" class="form-control">\
+							</div>\
+						</div>\
+					</div>\
+				');
+    });
+
+    $('.add-founder').click(function () {
+      let index = $('.founder-field').length + 1;
+      $(this).before('\
+					<div class="form-group founder-field">\
+						<input type="text" name="founder_' + index + '" class="form-control">\
+					</div>');
+    });
+  </script>
+</body>
+
+</html>

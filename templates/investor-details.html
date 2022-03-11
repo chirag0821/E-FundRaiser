@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Investors Details</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+	.logo{
+		padding-right: 10px;
+		height: 70px;
+		width: 70px;
+	}
+	.company{
+		font-family: 'PT Serif', serif;	
+		font-style: normal;
+		font-weight: 600;
+		font-size: 45px;
+		color: #414141
+	}
+	.nav-item{
+		padding: 0 45px;
+		font-size: 20px;
+	}
+	.dropdown-item{
+		padding:10px;
+		font-style: italic;
+	}
+	.dropdown-logo{
+		justify-content: flex-start;
+		margin-right: 15px;
+		height: 20px;
+		width: 20px;
+	}
+/*Navbar styling ends here*/
+
+	.container-fluid{		
+		background: linear-gradient(135deg, #00095C 0%, rgba(0, 18, 178, 0.75) 100%); 	
+		text-align: center;	
+	}
+	.title p{				
+		display: flex;
+		justify-content: center;
+		color: white;
+		font-size: 55px;
+		font-weight: 600;
+		text-shadow: 3px 3px #666565;
+	}
+	.sub-container{
+		max-width: 1200px;
+		margin: auto;
+		padding: 30px 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.teams{
+		margin: 10px;
+		padding: 22px;
+		max-width: 30%;
+		cursor: pointer;
+		transition: 0.4s;
+		box-sizing: border-box;
+	}
+	.teams:hover{
+		background: #ddd;
+		border-radius: 15px;
+	}
+	.teams img{
+		width: 220px;
+		height: 200px;
+	}
+	.name{
+		padding: 12px;
+		font-weight: bold;
+		font-size: 16px;
+		text-transform: uppercase;
+	}
+	.desig{
+		font-style: italic;
+		color: #888;
+	}
+	.about{
+		margin: 20px;
+		font-weight: lighter;
+		color: #000000;
+	}
+	.social-links{
+		margin: 14px;
+	}
+	.social-links a{
+		display: inline-block;
+		height: 30px;
+		width: 30px;
+		transition: 0.4s;
+	}
+	.social-links a:hover{
+		transform: scale(1.5);
+	}
+	.social-links a i{
+		color: #000;
+		font-size: 20px;
+		padding: 0 10px;
+	}
+	
+
+</style>
+  </head>
+
+  <body>
+	<header>	 	
+	<nav class="navbar navbar-expand-lg navbar-light" style="box-shadow: 0px 4px 35px 2px rgba(0, 0, 0, 0.18);">	 
+		<img class="logo" src="static/images/logo.jpg" alt="Company Logo">
+		<h3 class="company">E-Fundraiser</h3> 		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+	<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown" style="justify-content: flex-end;">
+	    <ul class="navbar-nav">
+		    <li class="nav-item">
+		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">About Us</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link active" href="#">Investors</a>
+		      </li>
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          More
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" href="#"><img class="dropdown-logo" src="static/images/faq-logo.png" alt="FAQ Logo">FAQ's</a>
+		          <a class="dropdown-item" href="#"><img class="dropdown-logo" src="static/images/settings-logo.png" alt="Settings Logo">Settings</a>
+		          <div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="#"><img class="dropdown-logo" src="static/images/signout-logo.png" alt="Signout Logo">Signout</a>
+		        </div>
+		      </li>
+		</ul>
+		</div>
+	</nav>
+	</header>
+
+
+	<div class="container-fluid">
+		<div class="title">
+			<p>Meet the Investors !!</p>
+		</div>
+		<div class="sub-container">
+
+			<div class="teams">
+				<img src="static/images/dp1-modified.png">
+				<div class="name">Kunal Patel</div>
+				<div class="desig">Share Broker, Businessman</div>
+				<div class="about">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud.</div>
+				<div class="social-links">
+					<a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>				
+					<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>	
+					<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+				</div>
+			</div>
+
+			<div class="teams">
+				<img src="static/images/dp2-modified.png">
+				<div class="name">Amit Shah</div>
+				<div class="desig">Businessman, Social Worker</div>
+				<div class="about">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud.</div>
+				<div class="social-links">
+					<a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>				
+					<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>	
+					<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+				</div>
+			</div>
+
+			<div class="teams">
+				<img src="static/images/dp3-modified.png">
+				<div class="name">Zareena Mallik</div>
+				<div class="desig">Entrepreneur</div>
+				<div class="about">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud.</div>
+				<div class="social-links">
+					<a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>				
+					<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>	
+					<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="sub-container">
+
+			<div class="teams">
+				<img src="static/images/dp4-modified.png">
+				<div class="name">Yash Malhotra</div>
+				<div class="desig">Real Estate Agent</div>
+				<div class="about">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud.</div>
+				<div class="social-links">
+					<a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>				
+					<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>	
+					<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+				</div>
+			</div>
+
+			<div class="teams">
+				<img src="static/images/dp5-modified.png">
+				<div class="name">B. U. Bhandari</div>
+				<div class="desig">Businessman, Automotive Industrialist</div>
+				<div class="about">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud.</div>
+				<div class="social-links">
+					<a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>				
+					<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>	
+					<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+				</div>
+			</div>
+
+			<div class="teams">
+				<img src="static/images/dp6-modified.png">
+				<div class="name">Isha Tandon</div>
+				<div class="desig">Entrepreneur</div>
+				<div class="about">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud.</div>
+				<div class="social-links">
+					<a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>				
+					<a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>	
+					<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+
+</html>
