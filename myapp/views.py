@@ -44,12 +44,20 @@ def login(request):
 def logout(request):
     auth_logout(request)
     messages.success(request,"Succesfully Logged Out")
-    return redirect('/login')    
+    return redirect('/login')
 
 def welcome(request):
     return render(request,'welcome.html')
 
+def new_startup(request):
+    return render(request, 'new_startup.html')    
 
 
+def faq(request):
+    return render(request, 'faq.html')
 
-    
+def welcome(request):
+    return render(request, 'welcome.html')
+
+def startup(request):
+    return render(request, 'startup-details.html')
