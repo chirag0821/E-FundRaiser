@@ -8,6 +8,7 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import login as auth_login
 from myapp.models import Startups,Uploads,Investments, Founders,Uploads #models.py  
 from django.contrib.auth import get_user_model
+import re
 
 Users = get_user_model()
 
@@ -82,30 +83,28 @@ def register_startup(request):
         valuation = request.POST['current_valuation']
         expected_fund = request.POST['expected_fund']
         address = request.POST['address']  
-        founders = request.POST['founder_1']
-        investor = request.POST['investor_1']
-        stake = request.POST['stake_1']
-        amount = request.POST['amount_1']
+        founders = [key for key in request.POST if key.startswith("founder")]
+        investors = len([key for key in request.POST if key.startswith("investor")])
         images = request.POST.get('images', [])
         documents = request.POST.get('documents', [])
 
-        add_startup = Startups(title=title, firm_name=firm_name, email=email, start_date=start_date, 
+        new_startup = Startups(title=title, firm_name=firm_name, email=email, start_date=start_date, 
         contact_no=contact_no, brief_desc=brief_desc, description=description, valuation=valuation, 
-        expected_fund=expected_fund)
-        add_startup.save()
+        expected_fund=expected_fund, address=address)
+        new_startup.save()
 
-        add_investment = Investments(startup=add_startup, user_id=Users.objects.all()[0].id, investor=investor, stake=stake, amount=amount)
-
-        add_founder = Founders(startup=add_startup, user_id=Users.objects.all()[0].id, name=founders)
+        for inv_index in range(1, investors + 1):
+            Investments(startup=new_startup, user_id=request.user.id,
+                        investor=request.POST[f'investor_{inv_index}'], stake=request.POST[f'stake_{inv_index}'], amount=request.POST[f'amount_{inv_index}']).save()
+                        
+        for founder in founders:
+            Founders(startup=new_startup, user_id=request.user.id, name=request.POST[founder]).save()
 
         for image in images:
-            Uploads(startup=add_startup, type="image", file=image).save()
+            Uploads(startup=new_startup, type="image", file=image).save()
         
         for document in documents:
-            Uploads(startup=add_startup, type="document", file=document).save()
-
-        add_investment.save()
-        add_founder.save()
+            Uploads(startup=new_startup, type="document", file=document).save()
 
         return redirect('/')
 

@@ -24,6 +24,7 @@ class Startups(models.Model):
     valuation=models.IntegerField()
     expected_fund=models.IntegerField()
     category = models.ForeignKey(Categories, on_delete=models.CASCADE, null=True)
+    address = models.CharField(max_length=1000, null=True)
 
     
 
