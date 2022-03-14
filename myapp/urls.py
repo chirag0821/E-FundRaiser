@@ -12,6 +12,6 @@ urlpatterns = [
     path('faq', views.faq, name='faq'),
     path('welcome', views.welcome, name='welcome'),
     path('startup', views.startup, name='startup'),
-    path('register_startup', views.add_startupData, name='add_startupData')
+    path('register_startup', views.register_startup, name='register_startup'),
 
 ]

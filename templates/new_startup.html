@@ -75,7 +75,8 @@
       </div>
       <div class="content w-100">
         <div class="h2 title mx-auto">Register Startup</div>
-        <form class="form mx-auto">
+        <form class="form mx-auto" method="post" action="/register_startup">
+          {% csrf_token %}
           <section class="basic-details-section d-flex" id="basic-details">
             <div class="h6 section-heading w-100">Basic Details</div>
             <div class="left-fields">
@@ -104,7 +105,7 @@
             <div class="right-fields">
               <div class="form-group">
                 <label><small>Firm Name</small></label>
-                <input type="text" name="title" class="form-control">
+                <input type="text" name="firm_name" class="form-control">
               </div>
 
               <div class="form-group">

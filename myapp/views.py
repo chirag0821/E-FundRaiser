@@ -7,6 +7,10 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import login as auth_login
 from myapp.models import Startups,Uploads,Investments, Founders,Uploads #models.py  
+from django.contrib.auth import get_user_model
+
+Users = get_user_model()
+
 # Create your views here.
 def home(request):
     return HttpResponse("This is home page")
@@ -65,14 +69,14 @@ def welcome(request):
 def startup(request):
     return render(request, 'startup-details.html')
 
-def add_startupData(request):
+def register_startup(request):
     if request.method == 'POST':  
      # request.FILES:
         title = request.POST['title']
         firm_name = request.POST['firm_name']
-        email = request.POST['eamil']
-        start_date = request.POST['title']
-        contact_no = request.POST['title']
+        email = request.POST['email']
+        start_date = request.POST['start-date']
+        contact_no = request.POST['contact-no']
         brief_desc = request.POST['brief_summary']
         description = request.POST['details']
         valuation = request.POST['current_valuation']
@@ -81,23 +85,28 @@ def add_startupData(request):
         founders = request.POST['founder_1']
         investor = request.POST['investor_1']
         stake = request.POST['stake_1']
-        amount = request.POST['amont_1']
-        file = request.POST['']
+        amount = request.POST['amount_1']
+        images = request.POST.get('images', [])
+        documents = request.POST.get('documents', [])
 
         add_startup = Startups(title=title, firm_name=firm_name, email=email, start_date=start_date, 
         contact_no=contact_no, brief_desc=brief_desc, description=description, valuation=valuation, 
         expected_fund=expected_fund)
-
-        add_investment = Investments(startup_id=add_startup.id, user_id=1 ,address=address, investor=investor, stake=stake, amount=amount)
-
-        add_founder = Founders(user_id=1, name=founders )
-
-        add_upload = Uploads (startup_id=add_startup.id, type="image", file=file)
-
         add_startup.save()
+
+        add_investment = Investments(startup_id=add_startup, user_id_id=Users.objects.all()[0].id, investor=investor, stake=stake, amount=amount)
+
+        add_founder = Founders(user_id_id=Users.objects.all()[0].id, name=founders)
+
+        for image in images:
+            Uploads(startup_id=add_startup, type="image", file=image).save()
+        
+        for document in documents:
+            Uploads(startup_id=add_startup, type="document", file=document).save()
+
         add_investment.save()
         add_founder.save()
-        add_upload.save()
 
+        return redirect('/')
 
 
