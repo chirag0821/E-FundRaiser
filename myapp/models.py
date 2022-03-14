@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.db import models
-from sqlalchemy import null
 
 # Create your models here.
 #Category Model
@@ -26,9 +25,7 @@ class Startups(models.Model):
     category = models.ForeignKey(Categories, on_delete=models.CASCADE, null=True)
     address = models.CharField(max_length=1000, null=True)
 
-    
-
-#User Model
+# User Model
 class Users(models.Model):
     id=models.AutoField(primary_key=True)
     name=models.CharField(max_length=100)

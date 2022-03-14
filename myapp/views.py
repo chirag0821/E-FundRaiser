@@ -9,10 +9,15 @@ from django.contrib.auth import login as auth_login
 from myapp.models import Startups,Uploads,Investments, Founders,Uploads #models.py  
 from django.contrib.auth import get_user_model
 import re
+from django.contrib.auth.decorators import login_required
+
 
 Users = get_user_model()
 
 # Create your views here.
+
+
+
 def home(request):
     return HttpResponse("This is home page")
 
@@ -55,8 +60,6 @@ def logout(request):
     messages.success(request,"Succesfully Logged Out")
     return redirect('/login')
 
-def welcome(request):
-    return render(request,'welcome.html')
 
 def new_startup(request):
     return render(request, 'new_startup.html')    
@@ -65,6 +68,7 @@ def new_startup(request):
 def faq(request):
     return render(request, 'faq.html')
 
+@login_required(login_url='/login')
 def welcome(request):
     return render(request, 'welcome.html')
 
