@@ -65,6 +65,6 @@ class Uploads(models.Model):
     id=models.AutoField(primary_key=True)
     startup=models.ForeignKey(Startups, on_delete=models.CASCADE)
     type=models.CharField(max_length=100)
-    file=models.FileField()
+    file=models.FileField(upload_to='file')
 
     

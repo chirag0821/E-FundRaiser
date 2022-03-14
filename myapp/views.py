@@ -86,8 +86,8 @@ def register_startup(request):
         address = request.POST['address']  
         founders = [key for key in request.POST if key.startswith("founder")]
         investors = len([key for key in request.POST if key.startswith("investor")])
-        images = request.POST.get('images', [])
-        documents = request.POST.get('documents', [])
+        images = request.FILES.getlist('images')
+        documents = request.FILES.getlist('documents')
 
         new_startup = Startups(title=title, firm_name=firm_name, email=email, start_date=start_date, 
         contact_no=contact_no, brief_desc=brief_desc, description=description, valuation=valuation, 
@@ -108,5 +108,3 @@ def register_startup(request):
             Uploads(startup=new_startup, type="document", file=document).save()
 
         return redirect('/')
-
-

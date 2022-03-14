@@ -1,6 +1,8 @@
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path
 from myapp import views
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.home, name="Home"),
@@ -14,4 +16,4 @@ urlpatterns = [
     path('startup', views.startup, name='startup'),
     path('register_startup', views.register_startup, name='register_startup'),
 
-]
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
