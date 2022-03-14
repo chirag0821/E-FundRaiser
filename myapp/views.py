@@ -94,15 +94,15 @@ def register_startup(request):
         expected_fund=expected_fund)
         add_startup.save()
 
-        add_investment = Investments(startup_id=add_startup, user_id_id=Users.objects.all()[0].id, investor=investor, stake=stake, amount=amount)
+        add_investment = Investments(startup=add_startup, user_id=Users.objects.all()[0].id, investor=investor, stake=stake, amount=amount)
 
-        add_founder = Founders(user_id_id=Users.objects.all()[0].id, name=founders)
+        add_founder = Founders(startup=add_startup, user_id=Users.objects.all()[0].id, name=founders)
 
         for image in images:
-            Uploads(startup_id=add_startup, type="image", file=image).save()
+            Uploads(startup=add_startup, type="image", file=image).save()
         
         for document in documents:
-            Uploads(startup_id=add_startup, type="document", file=document).save()
+            Uploads(startup=add_startup, type="document", file=document).save()
 
         add_investment.save()
         add_founder.save()

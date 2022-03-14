@@ -23,7 +23,7 @@ class Startups(models.Model):
     description=models.TextField()
     valuation=models.IntegerField()
     expected_fund=models.IntegerField()
-    category_id = models.ForeignKey(Categories, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Categories, on_delete=models.CASCADE, null=True)
 
     
 
@@ -42,8 +42,8 @@ class Users(models.Model):
 #Investment Model
 class Investments(models.Model):
     id=models.AutoField(primary_key=True)
-    startup_id=models.ForeignKey(Startups, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
+    startup=models.ForeignKey(Startups, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
     investor=models.CharField(max_length=100)
     stake=models.IntegerField()
     amount=models.IntegerField()
@@ -54,14 +54,15 @@ class Investments(models.Model):
 class Founders(models.Model):
     id=models.AutoField(primary_key=True)
     name=models.CharField(max_length=100)
-    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    startup = models.ForeignKey(Startups, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
   
 
 #Upload Model
 class Uploads(models.Model):
     id=models.AutoField(primary_key=True)
-    startup_id=models.ForeignKey(Startups, on_delete=models.CASCADE)
+    startup=models.ForeignKey(Startups, on_delete=models.CASCADE)
     type=models.CharField(max_length=100)
     file=models.FileField()
 
