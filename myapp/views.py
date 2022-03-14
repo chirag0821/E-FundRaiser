@@ -24,6 +24,7 @@ def register(request):
         if len(username) > 10:
             print("greater than 10")
             messages.error(request,"username must be less than 10 characters!!")
+            return redirect('/register')
         
         myuser = User.objects.create_user(username,email,password)
         myuser.save()
