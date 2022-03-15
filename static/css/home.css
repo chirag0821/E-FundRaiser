@@ -1,0 +1,101 @@
+.home-content{
+  height: 100%;
+  background: linear-gradient(135deg, #00095C 0%, rgba(0, 18, 178, 0.75) 100%); 		
+}
+.title-search{	
+  width: 100%;	
+  padding-top: 50px;								
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title-search p{	
+  font-size: 55px;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  text-shadow: 3px 3px #666565;
+}
+.boxContainer{
+  width: 300px;
+  height: 45px;		
+  padding: 0 4px;
+  margin: 20px 10px;
+  position: relative;
+  border-radius: 50px;
+  background-color: white;
+}
+.elementsContainer{
+  width: 100%;
+  height: 100%;		
+  vertical-align: middle;
+}
+.search{
+  border: none;
+  height: 100%;
+  width: 100%;
+  padding: 0 10px;
+  border-radius: 50px;
+  font-family: "Nunito";
+  color: #424242;		
+}
+.search:focus{
+  outline: none;
+}
+.srch-icon{
+  height: 26px;
+  width: 33px;
+}
+
+.card-deck{		
+  display: flex;
+  padding: 0 100px;
+  justify-content: center;	
+  text-align: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.card-img-top{
+  height: 196px;
+  border-radius: 0.5rem;
+  /* border-bottom: 4px solid grey; */
+  background: darkgray;
+}
+.location{
+  margin-bottom: 8px;
+  text-align: left;
+}
+.categories{
+  display: flex;
+    justify-content: center;
+  background-color: white;
+}
+.card-text{
+  height: 110px;
+}
+
+.food-startups{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  font-size: 45px;		
+  font-weight: 600;
+  color: white;
+  font-style: italic;
+  text-shadow: 3px 3px #666565;
+}
+.card-deck .card {
+  display: flex !important;
+  width: 300px;
+  margin: 20px;
+}
+.startup-img {
+  width: 100%;
+  height: 100%;
+}
+.inner-wrapper {
+  position: relative;
+  top: 76px;
+  flex-direction: column;
+}

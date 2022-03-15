@@ -17,10 +17,6 @@ Users = get_user_model()
 # Create your views here.
 
 
-
-def home(request):
-    return HttpResponse("This is home page")
-
 def register(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -72,19 +68,17 @@ def faq(request):
 def welcome(request):
     return render(request, 'welcome.html')
 
-def startup(request):
+def home(request):
     startups = Startups.objects.all()
     print(startups)
     for s in startups:
         try:
-            img = Uploads.objects.filter(startup_id = s.id).values('file')
-        except Uploads.DoesNotExist:
-            img = 'chirag'
-            
-        s.img = list(img)[:1][0]
-        s.img['file'] = "http://localhost:8000/media/" + s.img['file']
-        print(s.img)
-    return render(request, 'startup-details.html',{'startup':startups})
+            img = s.uploads_set.filter(type="image").first().file.url
+        except AttributeError:
+            img = '/static/images/alt-startup-img.jpg'
+        s.img = img
+
+    return render(request, 'home.html',{'startups':startups})
 
 def register_startup(request):
     if request.method == 'POST':  
