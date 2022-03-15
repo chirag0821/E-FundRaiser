@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import login as auth_login
-from myapp.models import Startups,Uploads,Investments, Founders,Uploads #models.py  
+from myapp.models import Startups,Uploads,Investments, Founders,Uploads, UseUsers #models.py  
 from django.contrib.auth import get_user_model
 import re
 from django.contrib.auth.decorators import login_required
@@ -121,3 +121,57 @@ def register_startup(request):
 def investors(request):
     investments = Investments.objects.exclude(user_id = None)
     return render(request, 'investors.html', {'investments': investments})
+
+
+
+def account(request):
+    if(request.method == 'POST'):
+        uname = request.POST.get('uname')
+        phone = request.POST.get('uphone')
+        phone = 1234567890
+        # UseUsers.objects.update_or_create(name=uname, , user=request.user)
+        obj, created = UseUsers.objects.update_or_create(user=request.user,defaults={'name': uname,'contact_no':phone})
+        
+        
+    try:
+        user = UseUsers.objects.get(user = request.user)
+        # print(user.name)
+        name = user.name
+        phone = user.contact_no
+        # f = Founders.objects.filter(user = request.user)
+        # i = Investments
+        # for i in found:
+        # print(f.startup.title)
+        # if(type(user) is dict):
+        #     print("okay")
+        #     if(user['name']):
+        #         name = user['name']
+        #     if(user['address']):
+        #         addr = user['address']
+        #     if(user['contact_no']):
+        #         phone = user['contact_no']
+        # else:
+        #     name = 'EnterYourName'
+        #     addr = 'EnterYourAddress'
+        #     phone = 'EnterYourPhone'
+    except Exception:
+        name = 'EnterYourName'
+        addr = 'EnterYourAddress'
+        phone = 'EnterYourPhone'
+        
+    try:
+        f = Founders.objects.filter(user = request.user)
+        # print(f)
+    except Exception:
+        chirag = 'chirag'
+        
+        
+    # try:
+    #     i = Investments.objects.filter(investor = request.user)
+    #     print(i.investor)
+    #     print("chirag")
+    # except Exception:
+    #     sahil = 'sahil'
+    
+    return render(request, 'account.html',{'name':name, 'phone':phone,'found':f,'invest':i})
+

@@ -26,16 +26,14 @@ class Startups(models.Model):
     address = models.CharField(max_length=1000, null=True)
 
 # User Model
-class Users(models.Model):
+class UseUsers(models.Model):
     id=models.AutoField(primary_key=True)
     name=models.CharField(max_length=100)
-    email=models.EmailField()
-    password_hash=models.IntegerField()
     contact_no=models.IntegerField()
-    role=models.CharField(max_length=100)
-    icon=models.ImageField()
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    
   
-#Investment Model
+#Investment Modelc 
 class Investments(models.Model):
     id=models.AutoField(primary_key=True)
     startup=models.ForeignKey(Startups, on_delete=models.CASCADE)
