@@ -1,0 +1,64 @@
+.inner-wrapper {
+  position: relative;
+  top: 76px;
+}
+.sidebar {
+  max-width: 250px;
+  width: 100%;
+  background: #003fff;
+}
+.sidebar ul {
+  margin-top: 30px;
+  list-style: none;
+  padding: 30px;
+  position: fixed;
+  top: 77px;
+  margin-left: 30px;
+}
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+}
+.content {
+  padding: 15px;
+}
+.my-profile {
+  margin: 35px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.user-details {
+  font-weight: 500;
+}
+.my-startup {
+  margin: 35px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.startup-details {
+  margin: 15px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: #256cf5;
+  border-radius: 15px;
+}
+.investment-details {
+  margin: 35px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.form-group {
+  margin: 20px 10px
+}
+@media only screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+}

@@ -125,17 +125,13 @@ def investors(request):
 
 
 def account(request):
+    user = UseUsers.objects.filter(user=request.user).first()
     if(request.method == 'POST'):
-        uname = request.POST.get('uname')
-        phone = request.POST.get('uphone')
-        phone = 1234567890
-        # UseUsers.objects.update_or_create(name=uname, , user=request.user)
-        obj, created = UseUsers.objects.update_or_create(user=request.user,defaults={'name': uname,'contact_no':phone})
-        
+        user.name = request.POST.get('uname')
+        user.contact_no = request.POST.get('ucontact')
+        user.save()
         
     try:
-        user = UseUsers.objects.get(user = request.user)
-        # print(user.name)
         name = user.name
         phone = user.contact_no
         # f = Founders.objects.filter(user = request.user)
@@ -155,23 +151,11 @@ def account(request):
         #     addr = 'EnterYourAddress'
         #     phone = 'EnterYourPhone'
     except Exception:
-        name = 'EnterYourName'
-        addr = 'EnterYourAddress'
-        phone = 'EnterYourPhone'
+        name = ''
+        phone = ''
         
-    try:
-        f = Founders.objects.filter(user = request.user)
-        # print(f)
-    except Exception:
-        chirag = 'chirag'
-        
-        
-    # try:
-    #     i = Investments.objects.filter(investor = request.user)
-    #     print(i.investor)
-    #     print("chirag")
-    # except Exception:
-    #     sahil = 'sahil'
+    founders = Founders.objects.filter(user = request.user)
+    investments = Investments.objects.filter(user = request.user)
     
-    return render(request, 'account.html',{'name':name, 'phone':phone,'found':f,'invest':i})
+    return render(request, 'account.html',{'name':name, 'phone':phone,'founders': founders,'investments': investments})
 
