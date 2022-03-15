@@ -73,7 +73,18 @@ def welcome(request):
     return render(request, 'welcome.html')
 
 def startup(request):
-    return render(request, 'startup-details.html')
+    startups = Startups.objects.all()
+    print(startups)
+    for s in startups:
+        try:
+            img = Uploads.objects.filter(startup_id = s.id).values('file')
+        except Uploads.DoesNotExist:
+            img = 'chirag'
+            
+        s.img = list(img)[:1][0]
+        s.img['file'] = "http://localhost:8000/media/" + s.img['file']
+        print(s.img)
+    return render(request, 'startup-details.html',{'startup':startups})
 
 def register_startup(request):
     if request.method == 'POST':  
@@ -99,7 +110,7 @@ def register_startup(request):
         new_startup.save()
 
         for inv_index in range(1, investors + 1):
-            Investments(startup=new_startup, user_id=request.user.id,
+            Investments(startup=new_startup,
                         investor=request.POST[f'investor_{inv_index}'], stake=request.POST[f'stake_{inv_index}'], amount=request.POST[f'amount_{inv_index}']).save()
                         
         for founder in founders:

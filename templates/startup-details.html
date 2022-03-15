@@ -108,14 +108,15 @@
 		margin-bottom: 8px;
 		text-align: left;
 	}
-	.card-text{
-		height: 110px;
-	}
 	.categories{
 		display: flex;
     	justify-content: center;
 		background-color: white;
 	}
+	.card-text{
+		height: 110px;
+	}
+	
 	.food-startups{
 		margin: auto;
 		display: flex;
@@ -205,49 +206,19 @@
 		</div>
 
 		<br><br>
-
 		<div class="card-deck col d-flex justify-content-center">
+		 {%for s in startup %}
 		  <div class="card">
-		    <img src="static/images/s1.png" class="card-img-top">
+		    <img src={{s.img.file}} class="card-img-top">
 		    <div class="card-body" style="padding: 10px;">
 		      <p class="location">Hyderabad, 2012</p>
-		      <h5 class="card-title">SKIPPI ICE POPS</h5>
-		      <p class="card-text">Skippi Ice Pops is India's first ice popsicle brand. The brand claims that its products are made of 100% Natural flavours, colours, preservatives and sweeteners.</p>
+		      <h5 class="card-title">{{s.firm_name}}</h5>
+		      <p class="card-text">{{s.description}}</p>
 		      <a href="#">Read More</a>
 		    </div>
 		  </div>
-		  <div class="card">
-		    <img src="static/images/s2.png" class="card-img-top">
-		    <div class="card-body" style="padding: 10px;">
-		      <p class="location">Delhi, 2018</p>
-		      <h5 class="card-title">BLUEPINE FOODS</h5>
-		      <p class="card-text">Bluepine Foods is a Delhi-based food company founded in 2016. It specialises in  Frozen Veg Momos, Frozen Spring Rolls and Frozen Non Veg Momos with traditional Himalayan ingredients.</p>
-		      <a href="#">Read More</a>
-		    </div>
-		  </div>
-		  <div class="card">
-		    <img src="static/images/s3.jpg" class="card-img-top">
-		    <div class="card-body" style="padding: 10px;">
-		      <p class="location">Kanpur, 2020</p>
-		      <h5 class="card-title">AAS VIDYALAYA</h5>
-		      <p class="card-text">AAS Vidyalaya is an educational start-up founded by the couple - Vikas and Leena Kakawini. It stands for The Anytime Anywhere School and aims to take the school to those children who are unable to attend school.</p>
-		      <a href="#">Read More</a>
-		    </div>
-		  </div>
-		</div>
+		  {%endfor%}		
 
-		<br><br>		
-
-		<div class="card-deck col d-flex justify-content-center">
-		  <div class="card">
-		    <img src="static/images/s4.webp" class="card-img-top" alt="...">
-		    <div class="card-body" style="padding: 10px;">
-			  <p class="location">Goa, 2020</p>
-		      <h5 class="card-title">IN A CAN </h5>
-		      <p class="card-text">In A Can is a startup that manufacturers canned cocktails. InACan has revolutionized the way we can enjoy our cocktails. Imagine if the best bartender made the best cocktail at the best bar in your city Now.</p>
-		      <a href="#">Read More</a>
-		    </div>
-		  </div>
 		  <div class="card">
 		    <img src="static/images/s5.png" class="card-img-top" alt="...">
 		    <div class="card-body" style="padding: 10px;">
@@ -271,7 +242,7 @@
 		<br><br>
 
 		<div class="categories">
-			<img src="static/images/list2.png">
+			<img style = "width:90vw" src="static/images/list2.png">
 		</div>
 
 		<br><br><br>

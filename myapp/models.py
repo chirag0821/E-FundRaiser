@@ -34,19 +34,15 @@ class Users(models.Model):
     contact_no=models.IntegerField()
     role=models.CharField(max_length=100)
     icon=models.ImageField()
-
-    
-
+  
 #Investment Model
 class Investments(models.Model):
     id=models.AutoField(primary_key=True)
     startup=models.ForeignKey(Startups, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE, null=True)
     investor=models.CharField(max_length=100)
     stake=models.IntegerField()
     amount=models.IntegerField()
-
-    
 
 #Founder Model
 class Founders(models.Model):
@@ -55,7 +51,6 @@ class Founders(models.Model):
     startup = models.ForeignKey(Startups, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
-  
 
 #Upload Model
 class Uploads(models.Model):
