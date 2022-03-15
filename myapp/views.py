@@ -123,3 +123,7 @@ def register_startup(request):
             Uploads(startup=new_startup, type="document", file=document).save()
 
         return redirect('/')
+
+def investors(request):
+    investments = Investments.objects.exclude(user_id = None)
+    return render(request, 'investors.html', {'investments': investments})
