@@ -64,14 +64,14 @@
 					<br><br>
 					<div class="card-deck col d-flex justify-content-center">
 					{%for s in startups %}
-							<div class="card shadow bg-body rounded">
+							<a href="/startup?id={{s.id}}" class="card shadow bg-body rounded">
 								<div class="card-img-top shadow p-1 bg-body rounded"><img src="{{s.img | default:'/static/images/alt-startup-img.jpg'}}" class="startup-img"></div>
 								<div class="card-body" style="padding: 10px;">
 									<h5 class="card-title">{{s.firm_name}}</h5>
 									<p class="card-text">{{s.brief_desc}}</p>
 									<!-- <a href="#">Read More</a> -->
 								</div>
-							</div>
+							</a>
 						{%endfor%}		
 					</div>				
 					

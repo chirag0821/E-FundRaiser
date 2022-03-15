@@ -4,339 +4,136 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>E-fundraiser</title>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">		
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+		<link rel="stylesheet" href="/static/css/view-startup.css">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-			
-		
-
-	<style>
-	.inner-wrapper {
-	  position: relative;
-	  top: 76px;
-	}
-	/* nav bar  */
-	nav {
-	  position: fixed !important;
-	  width: 100%;
-	  top: 0;
-	  z-index: 999;
-	}
-	.logo {
-	  width: 50px;
-	  height: 50px;
-	}
-	.nav-title {
-	  width: 100%;
-	  max-width: 336px;
-	  /*font-family: Sofia Sans;*/
-	  font-style: normal;
-	  font-weight: 600;
-	  font-size: 40px;
-	  line-height: 40px;
-	  display: flex;
-	  align-items: center;
-	  color: #414141;
-	  margin-left: 10px;
-	}
-	#navbarNavDropdown {
-	  flex-direction: row-reverse;
-	}
-	.navbar-nav {
-	  display: flex;
-	  justify-content: space-between;
-	  align-items: center;
-	  max-width: 500px;
-	  width: 100%;
-	}
-	.dropdown-menu {
-	  left: -80px !important;
-	}
-	.nav-compact {
-	  display: flex;
-	  justify-content: space-between;
-	  width: 100%;
-	}
-	@media only screen and (min-width: 991px) {
-	  .nav-compact {
-	    max-width: 300px;
-	  }
-	}
-	.nav-avator {
-	  width: 45px;
-	  height: 45px;
-	  border-radius: 100px;
-	}
-	/*  ***************** */
-	.sidebar {
-	  max-width: 250px;
-	  width: 100%;	  
-	  background: #003FFF;
-	}
-	.sidebar ul {
-	  margin-top: 30px;
-	  list-style: none;
-	  padding: 30px;
-	  position: fixed;
-	  top: 77px;
-	}
-	.sidebar ul li a{
-		text-decoration: none;
-		color: white;
-		padding: 5px 0;
-		font-size: 19px;
-	}
-	.content{
-		margin: 20px;
-		padding: 15px;
-	}
-	.startup-name{
-		font-family: 'Lobster', cursive;
-		font-size: 60px;
-		/*font-weight: 700;*/
-	}
-	.basic-details{
-		margin: 35px;
-		padding: 20px;
-		border-radius: 15px;
-		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	}
-	.user-details{
-		margin: 5px 0;		
-		display: flex;
-		font-size: 18px;
-		font-weight: 500;
-	}
-	.user-data{
-		margin: 0 8px;
-		font-family: sans-serif;
-		font-style: inherit;
-		font-weight: 200;
-	}
-	.founders{
-		margin: 35px;
-		padding: 20px;
-		border-radius: 15px;
-		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	}
-	.founder-details{
-		margin: 5px 0;		
-		/*display: flex;*/
-		font-size: 17px;
-		font-weight: 500;
-	}	
-	.business-details{
-		margin: 35px;
-		padding: 20px;
-		border-radius: 15px;
-		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	}
-	.valuation{
-		margin: 35px;
-		padding: 20px;
-		border-radius: 15px;
-		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	}
-	.doc{
-		margin: 15px;
-		padding: 10px;
-		display: inline-flex;
-		justify-content: center;
-	}
-
-	</style>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
-		<div class="wrapper">
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			  <div class="container-fluid">
-			  	<div class="nav-compact">
-				    <a class="navbar-brand d-flex" href="#"><img src="static\logo.svg" class="logo"><span class="nav-title">E-fundraiser</span></a>
-				    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-				      <span class="navbar-toggler-icon"></span>
-				    </button>
-				  </div>
-			    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-			      <ul class="navbar-nav">
-			        <li class="nav-item">
-			          <a class="nav-link active" aria-current="page" href="#">Home</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="#">Investors</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="#">About us</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link" href="#">FAQ</a>
-			        </li>
-			        <li class="nav-item dropdown">
-			          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-			            <img src="static/profile_avator.svg" class="nav-avator">
-			          </a>
-			          <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end dropdown-menu-lg-start" aria-labelledby="navbarDropdownMenuLink">
-			            <li>
-    			          <a href="#" class="dropdown-item">Home</a>
-    			        </li>
-    			        <li>
-    			          <a href="#" class="dropdown-item">Investors</a>
-    			        </li>
-    			        <li >
-    			          <a href="#" class="dropdown-item">About us</a>
-    			        </li>
-    			        <li>
-    			          <a href="#" class="dropdown-item">FAQ</a>
-    			        </li>
-			          </ul>
-			        </li>
-			      </ul>
-			    </div>
-			  </div>
-			</nav>
+	<div class="wrapper">
+		{% include "navbar.html" with active_tab="startup" %}
+		<div class="inner-wrapper d-flex">
+			<div class="sidebar">					
+				<ul class="form-indexes">						
+					<li><a href="#basic-details">Basic Details</a></li>
+					<li><a href="#founders">Founders</a></li>						
+					<li><a href="#business">Business Details</a></li>
+					<li><a href="#valuation">Valuation and Funds</a></li>
+					<li><a href="#documents">Documents</a></li>					
+				</ul>
+			</div>
 
-			<div class="inner-wrapper d-flex">
-				<div class="sidebar">					
-					<ul class="form-indexes">						
-						<li><a href="#basic-details">Basic Details</a></li>
-						<li><a href="#founders">Founders</a></li>						
-						<li><a href="#business">Business Details</a></li>
-						<li><a href="#valuation">Valuation and Funds</a></li>
-						<li><a href="#documents">Documents</a></li>					
-					</ul>
+			<div class="content w-100">
+				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+						{% for img in images %}
+							<div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+								<img src="{{img.file.url}}" style="width: 100%; height: 550px;" alt="...">
+							</div>
+						{% endfor %}
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<!-- <span class="sr-only">Previous</span> -->
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<!-- <span class="sr-only">Next</span> -->
+					</a>
 				</div>
-
-				<div class="content w-100">
-					<p class="startup-name text-center">BabyQuip</p>
-
-					<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-					  <div class="carousel-inner">
-					    <div class="carousel-item active">
-					      <img src="static/images/startup-detail3.jpg" style="width: 100%; height: 550px;" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img src="static/images/startup-detail2.jpg" style="width: 100%; height: 550px;" alt="...">
-					    </div>
-					    <div class="carousel-item">
-					      <img src="static/images/startup-detail1.jpg" style="width: 100%; height: 550px;" alt="...">
-					    </div>
-					  </div>
-					  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-					    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					    <!-- <span class="sr-only">Previous</span> -->
-					  </a>
-					  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-					    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-					    <!-- <span class="sr-only">Next</span> -->
-					  </a>
+				<p class="startup-name text-center mt-5">{{startup.title}}</p>
+				<div class="d-block w-100">
+					<div class="basic-details" id="basic-details">
+						<div class="h3 title mx-auto">Basic Details</div>
+						<br>
+						<div>
+							<div class="user-details">Name :<p class="user-data">{{startup.title}}</p></div>
+							<div class="user-details">Firm Name : <p class="user-data">{{startup.firm_name}}</p></div>
+							<div class="user-details">Address : <p class="user-data">{{startup.address}}</p></div>
+							<div class="user-details">Email ID : <p class="user-data">{{startup.email}}</p></div>
+							<div class="user-details">Contact No : <p class="user-data">{{startup.contact_no}}</p></div>
+							<div class="user-details">Started From : <p class="user-data">{{startup.start_date|date:"M d, Y"}}</p></div>
+						</div>
 					</div>
 
-					<div class="d-block w-100">
-						<div class="basic-details" id="basic-details">
-							<div class="h3 title mx-auto">Basic Details</div>
-							<div>
-								<div class="user-details">Name :<p class="user-data">Abc Kdkjbsb</p></div>
-								<div class="user-details">Firm Name : <p class="user-data"> Abc Kdkjbsb</p></div>
-								<div class="user-details">Address : <p class="user-data"> Abc Kdkjbsb</p></div>
-								<div class="user-details">Email ID : <p class="user-data"> Abc Kdkjbsb</p></div>
-								<div class="user-details">Contact No : <p class="user-data"> Abc Kdkjbsb</p></div>
-								<div class="user-details">Started From : <p class="user-data">21/05/2013</p></div>
-								<div class="user-details">Brief Summary :</div>
-								<p class="user-data">Traveling with babies and toddlers is already difficult for parents - the bulky baby gear makes it even harder. BabyQuip has helped nearly 70,000 parents across the US and Canada have happier vacations.</p>
-							</div>
-						</div>
+					<div class="founders" id="founders">
+						<div class="h3 title mx-auto">Founders</div>	
+						<br>				
+						<ul>
+							{% for founder in founders %}
+								<li class="founder-details">{{founder.name}}</li>
+							{% endfor %}
+						</ul>				
+					</div>
 
-						<div class="founders" id="founders">
-							<div class="h3 title mx-auto">Founders</div>					
-							<div>
-								<p class="founder-details">Fran Maier</p>
-								<p class="founder-details">FOUNDER AND CHIEF EXECUTIVE OFFICER</p>
-							</div>
-							<p>Fran formed BabyQuip (then Babierge) in 2016. Prior to BabyQuip, Fran is best known for her 10+ years leading TRUSTe (now TrustArc), the leading privacy trustmark and solutions provider, and her role as Co-Founder and first General Manager of Match.com, the earliest and most successful dating platform.</p>	
-												
-							<div>
-								<p class="founder-details">Joe Maier</p>
-								<p class="founder-details">CHIEF TECHNOLOGY OFFICER</p>
-							</div>
-							<p>Joe Maier, CTO, is a product driven technology developer with a passion for creating scalable user friendly applications. Joe Maier comes to BabyQuip after five years as a technology consultant at Accenture, where he designed and built back end processes and web applications for clients</p>	
-						</div>
+					<div class="business-details" id="business">
+						<div class="h3 title mx-auto">Business Details</div>
+						<br>						
+						<p>{{startup.description}}</p>
+					</div>
 
-						<div class="business-details" id="business">
-							<div class="h3 title mx-auto">Business Details</div>						
-							<p>Traveling with babies and toddlers is already difficult for parents - the bulky baby gear makes it even harder. BabyQuip has helped nearly 70,000 parents across the US and Canada have happier vacations. Families love BabyQuip, consistently rewarding it with an NPS Score above 90 (world class) and over 18,000 five-star reviews (99% of all reviews).</p>
-							<p>BabyQuip's managed marketplace and robust platform provide its community of over 800 independent contractors, called Quality Providers (QPs), the opportunity to build a business renting baby gear. Prospective QPs, mostly moms, undergo an application process, interview, background check, and extensive training on safety, cleaning, and hospitality. They are able to start delivering baby gear to families within days of setting up their profile. Quality Providers determine their inventory (gear they own), operating hours, delivery radius, prices and more.</p>
-							<p>QPs enjoy the extra income ($1000+/month avg this past summer among QPs with orders) and gratifying work. In addition to ongoing lead generation, the QPs benefit from an active and supportive community and coaching on how to build their business through social media and affiliate marketing.</p>
-						</div>
-						
-						<div class="valuation" id="valuation">
-							<div class="h3 title mx-auto">Valuation and Funds</div>
-							<div class="h5 title mx-auto">Previous Investors</div>
-								<table class="table table-sm" style="margin-top: 20px">
-								  <thead>
-								    <tr>
-								      <th scope="col">Serial no.</th>							      
-								      <th scope="col">Investor</th>
-								      <th scope="col">Amount (Rs Crore)</th>
-								      <th scope="col">Stake</th>
-								    </tr>
-								  </thead>
-								  <tbody>
-								    <tr>
-								      <td>1</td>
-								      <th scope="row">ABhadbjahsb</th>							      
-								      <td>2000</td>
-								      <td>5%</td>
-								    </tr>
-								    <tr>
-								      <td>2</td>
-								      <th scope="row">Kjhaksc</th>							      
-								      <td>5000</td>
-								      <td>7%</td>
-								    </tr>							    
-								  </tbody>
-								</table>
-						</div>
+					<div class="valuation" id="valuation">
+						<div class="h3 title mx-auto">Valuation and Funds</div>
+						<br>
+						<div class="user-details">Valuation :<p class="user-data">Rs. {{startup.valuation}}</p></div>
+						<div class="user-details">Expected Fund :<p class="user-data">Rs. {{startup.expected_fund}}</p></div>
+					</div>
+					
+					<div class="investments" id="investments">
+						<div class="h3 title mx-auto">Previous Investors</div>
+							<table class="table table-sm table-responsive" style="margin-top: 20px">
+								<thead>
+									<tr>
+										<th scope="col">Serial no.</th>							      
+										<th scope="col">Investor</th>
+										<th scope="col">Amount (Rs)</th>
+										<th scope="col">Stake</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for investment in investments %}
+										<tr>
+											<td>forloop.counter</td>
+											<th scope="row">{{investment.investor}}</th>							      
+											<td>Rs. {{investment.amount}}</td>
+											<td>{{investment.stake}}%</td>
+										</tr>
+									{% endfor %}					    
+								</tbody>
+							</table>
+					</div>
 
-						<div class="business-details" id="documents">
-							<div class="h3 title mx-auto">Documents</div>
-							<div class="doc">
-								<div class="mx-5">				
-									<a href="static/docs/assgn1.pdf" target="_E-Fundraiser">
-										<img src="static/images/pdf-logo.webp" height="90px" width="60px"></a>
-										<p>Assign 1</p>
-								</div>
-								<div class="mx-5">				
-									<a href="static/docs/assgn1.pdf" target="_E-Fundraiser">
-										<img src="static/images/pdf-logo.webp" height="90px" width="60px"></a>
-										<p>Assign 1</p>
-								</div>	
-								<div class="mx-5">				
-									<a href="static/docs/assgn1.pdf" target="_E-Fundraiser">
-										<img src="static/images/pdf-logo.webp" height="90px" width="60px"></a>
-										<p>Assign 1</p>
-								</div>
-								<div class="mx-5">				
-									<a href="static/docs/assgn1.pdf" target="_E-Fundraiser">
-										<img src="static/images/pdf-logo.webp" height="90px" width="60px"></a>
-										<p>Assign 1</p>
-								</div>
-							</div>
+					<div class="business-details" id="documents">
+						<div class="h3 title mx-auto">Documents</div>
+						<div class="doc">
+							{% for doc in documents %}				
+								<a href="{{doc.file.url}}" class="doc-card shadow p-3 bg-body rounded" target="_blank">
+									<div class="doc-img-cover">
+										<img src="static/images/pdf-logo.webp">
+									</div>
+									<p>{{doc.file.name}}</p>
+								</a>
+							{% endfor %}
 						</div>
-
-						<center><button type="button" class="btn btn-primary" style="font-size: 25px">Invest</button></center>
+					</div>
+					<div class="w-100 text-center">
+						<button type="button" class="btn btn-primary btn-lg">Invest</button>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 </body>
 </html>

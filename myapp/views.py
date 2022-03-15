@@ -159,3 +159,11 @@ def account(request):
     
     return render(request, 'account.html',{'name':name, 'phone':phone,'founders': founders,'investments': investments})
 
+# /startup?id=<id>
+def startup(request):
+    try:
+        startup = Startups.objects.get(id=request.GET['id'])
+        uploads = startup.uploads_set
+        return render(request, 'view-startup.html', {'startup': startup, 'founders': startup.founders_set.all(), 'investments': startup.investments_set.all(), 'images': uploads.filter(type="image"), 'documents': uploads.filter(type="document")})
+    except Exception:
+        return redirect('/')
