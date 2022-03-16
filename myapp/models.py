@@ -48,7 +48,7 @@ class Founders(models.Model):
     id=models.AutoField(primary_key=True)
     name=models.CharField(max_length=100)
     startup = models.ForeignKey(Startups, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
 
 
 #Upload Model

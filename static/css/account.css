@@ -38,15 +38,17 @@
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.startup-details {
-  margin: 15px;
+.startup-details, .startup-details:hover {
+  margin: 20px;
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 400;
   background-color: #256cf5;
-  border-radius: 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #FFF;
 }
 .investment-details {
   margin: 35px;

@@ -115,9 +115,10 @@ def register_startup(request):
         for inv_index in range(1, investors + 1):
             Investments(startup=new_startup,
                         investor=request.POST[f'investor_{inv_index}'], stake=request.POST[f'stake_{inv_index}'], amount=request.POST[f'amount_{inv_index}']).save()
-                        
+
+        Founders(startup=new_startup, user_id=request.user.id, name=UseUsers.objects.filter(user=request.user).first().name).save()
         for founder in founders:
-            Founders(startup=new_startup, user_id=request.user.id, name=request.POST[founder]).save()
+            Founders(startup=new_startup, name=request.POST[founder]).save()
 
         for image in images:
             Uploads(startup=new_startup, type="image", file=image).save()

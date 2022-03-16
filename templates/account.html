@@ -68,10 +68,10 @@
           <div class="my-startup" id="startup">
             <div class="h4 title mx-auto">My Startups</div>
             {% for s in founders %}
-              <div class="startup-details">
+              <a class="startup-details" href="/startup?id={{s.startup.id}}">
                 {{s.startup.title}}
-                <button type="button" class="btn btn-info">Update</button>
-              </div>
+                <!-- <button type="button" class="btn btn-info">Delete</button> -->
+              </a>
             {% endfor %}
           </div>	
 
