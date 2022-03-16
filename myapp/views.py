@@ -21,20 +21,25 @@ def local(request):
     
 def register(request):
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-        username = request.POST['username']
-        
-        if len(username) > 10:
-            print("greater than 10")
-            messages.error(request,"username must be less than 10 characters!!")
+        try:
+            email = request.POST['email']
+            password = request.POST['password']
+            username = request.POST['username']
+            
+            if len(username) > 10:
+                print("greater than 10")
+                messages.error(request,"username must be less than 10 characters!!")
+                return redirect('/register')
+            
+            myuser = User.objects.create_user(username,email,password)
+            myuser.save()
+            UseUsers.objects.create(name=username, user=myuser)
+            messages.success(request,"Your account has been succesfully created")
+            return redirect('/login')
+        except:
+            messages.error(request, "Username or Email already taken")
             return redirect('/register')
-        
-        myuser = User.objects.create_user(username,email,password)
-        myuser.save()
-        UseUsers.objects.create(name=username, user=myuser)
-        messages.success(request,"Your account has been succesfully created")
-        return redirect('/login')
+
     else:
         return render(request,'signup.html')
     
