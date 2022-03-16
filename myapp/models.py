@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from sqlalchemy import null
 
 # Create your models here.
 #Category Model
@@ -29,7 +30,7 @@ class Startups(models.Model):
 class UseUsers(models.Model):
     id=models.AutoField(primary_key=True)
     name=models.CharField(max_length=100)
-    contact_no=models.IntegerField()
+    contact_no=models.IntegerField(null=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     
   

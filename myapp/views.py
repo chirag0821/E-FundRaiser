@@ -32,6 +32,7 @@ def register(request):
         
         myuser = User.objects.create_user(username,email,password)
         myuser.save()
+        UseUsers.objects.create(name=username, user=myuser)
         messages.success(request,"Your account has been succesfully created")
         return redirect('/login')
     else:
@@ -119,7 +120,7 @@ def register_startup(request):
         for document in documents:
             Uploads(startup=new_startup, type="document", file=document).save()
         messages.success(request,"Your startup registered succesfully")
-        return redirect('/')
+        return redirect('/home')
 
 @login_required(login_url='/login')
 def investors(request):
@@ -139,22 +140,6 @@ def account(request):
     try:
         name = user.name
         phone = user.contact_no
-        # f = Founders.objects.filter(user = request.user)
-        # i = Investments
-        # for i in found:
-        # print(f.startup.title)
-        # if(type(user) is dict):
-        #     print("okay")
-        #     if(user['name']):
-        #         name = user['name']
-        #     if(user['address']):
-        #         addr = user['address']
-        #     if(user['contact_no']):
-        #         phone = user['contact_no']
-        # else:
-        #     name = 'EnterYourName'
-        #     addr = 'EnterYourAddress'
-        #     phone = 'EnterYourPhone'
     except Exception:
         name = ''
         phone = ''
@@ -171,7 +156,7 @@ def startup(request):
         uploads = startup.uploads_set
         return render(request, 'view-startup.html', {'startup': startup, 'founders': startup.founders_set.all(), 'investments': startup.investments_set.all(), 'images': uploads.filter(type="image"), 'documents': uploads.filter(type="document")})
     except Exception:
-        return redirect('/')
+        return redirect('/home')
 
 def about_us(request):
     return render(request, 'about_us.html')
@@ -183,7 +168,9 @@ def invest(request):
         amount = int(request.POST.get('amount'))
         stake = ((amount*100) / startup.valuation)
         startup.investments_set.create(amount=amount, stake=stake, user=request.user, investor=UseUsers.objects.filter(user=request.user).first().name)
+        messages.success(request, "Investment succesful!!")
         return redirect('/startup?id={}'.format(request.POST.get("startup_id")))
         
     except Exception:
+        messages.error(request, "Investment failed!!")
         return redirect('/startup?id={}'.format(request.POST.get("startup_id")))

@@ -16,18 +16,6 @@
 </head>
 
 <body>
-	{% if messages %}
-    {% for message in messages %}
-<div class="container-fluid p-0">
-  <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
-    <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close">
-      
-    </button>
-    {{ message }}
-  </div>
-</div>
-{% endfor %}
-  {% endif %}
 	<div class="wrapper">
 		{% include "navbar.html" with active_tab="startup" %}
 		<div class="inner-wrapper d-flex">
@@ -42,6 +30,16 @@
 			</div>
 
 			<div class="content w-100">
+				{% if messages %}
+					{% for message in messages %}
+						<div class="container-fluid p-0">
+							<div class="alert {{ message.tags }} alert-dismissible" role="alert">
+								<button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
+								{{ message }}
+							</div>
+						</div>
+					{% endfor %}
+				{% endif %}
 				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 					<div class="carousel-inner">
 						{% for img in images %}
