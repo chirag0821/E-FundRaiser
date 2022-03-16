@@ -99,8 +99,8 @@
 								<tbody>
 									{% for investment in investments %}
 										<tr>
-											<td>forloop.counter</td>
-											<th scope="row">{{investment.investor}}</th>							      
+											<td>{{forloop.counter}}</td>
+											<td>{{investment.investor}}</td>							      
 											<td>Rs. {{investment.amount}}</td>
 											<td>{{investment.stake}}%</td>
 										</tr>
@@ -123,8 +123,36 @@
 						</div>
 					</div>
 					<div class="w-100 text-center">
-						<button type="button" class="btn btn-primary btn-lg">Invest</button>
+						<button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#investModal">Invest</button>
 					</div>
+					
+					<!-- Modal -->
+					<div class="modal fade" id="investModal" tabindex="-1" aria-labelledby="investModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="investModalLabel">Invest in {{startup.title}}</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<form method="post" action="/invest">
+									{% csrf_token %}
+									<div class="modal-body">
+										<div class="mb-3 text-center">
+											<label for="amount" class="col-form-label"><b>Amount (in Rs.)</b></label>
+											<input type="number" class="form-control" id="amount" name="amount" required>
+											<input type="hidden" class="form-control" id="startup_id" name="startup_id" value="{{startup.id}}">
+										</div>
+									</div>
+									<div class="modal-footer justify-content-center">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+										<button type="submit" class="btn btn-primary">Invest</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+
+
 				</div>
 			</div>
 		</div>

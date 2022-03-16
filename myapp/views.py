@@ -70,7 +70,6 @@ def welcome(request):
 
 def home(request):
     startups = Startups.objects.all()
-    print(startups)
     for s in startups:
         try:
             img = s.uploads_set.filter(type="image").first().file.url
@@ -167,3 +166,18 @@ def startup(request):
         return render(request, 'view-startup.html', {'startup': startup, 'founders': startup.founders_set.all(), 'investments': startup.investments_set.all(), 'images': uploads.filter(type="image"), 'documents': uploads.filter(type="document")})
     except Exception:
         return redirect('/')
+
+
+def about_us(request):
+    return render(request, 'about_us.html')
+
+def invest(request):
+    try:
+        startup = Startups.objects.get(id=request.POST.get('startup_id'))
+        amount = int(request.POST.get('amount'))
+        stake = ((amount*100) / startup.valuation)
+        startup.investments_set.create(amount=amount, stake=stake, user=request.user, investor=UseUsers.objects.filter(user=request.user).first().name)
+        return redirect('/startup?id={}'.format(request.POST.get("startup_id")))
+        
+    except Exception:
+        return redirect('/startup?id={}'.format(request.POST.get("startup_id")))

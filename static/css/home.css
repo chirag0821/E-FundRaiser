@@ -99,3 +99,9 @@
   top: 76px;
   flex-direction: column;
 }
+a {
+  text-decoration: none !important;
+}
+.card-body {
+  color: black;
+}
