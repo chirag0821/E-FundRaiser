@@ -66,7 +66,7 @@ def faq(request):
 
 @login_required(login_url='/login')
 def welcome(request):
-    return render(request, 'welcome.html')
+    return render(request, 'landing_page.html')
 
 def home(request):
     startups = Startups.objects.all()

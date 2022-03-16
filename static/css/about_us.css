@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+}
+
+.inner-wrapper {
+  position: relative;
+  top: 76px;
+  font-family: Arial, Helvetica, sans-serif;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(to bottom, #0b233b, #002c6b, #00329b, #0030c7, #2d12eb);
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.teamcard, .role-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  /* background-image: linear-gradient(to bottom, #0b233b, #002c6b, #00329b, #0030c7, #2d12eb); */
+  color: white;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  margin: 10px;
+}
+.card-title {
+  margin-bottom: 4rem;
+}
+.detail-card {
+  background: #EEF8FF;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 21px;
+  margin: 20px;
+  padding: 40px;
+}
+.cards-cover {
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.developer-details {
+  padding: 20px;
+  text-align: center;
+}
+.developers {
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.landing-card-wrapper {
+  background: white;
+  height: 290px;
+}
+.wrapper-cover {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 25px 0px;
+    color: #1E0E62;
+}
+.welcome-card {
+  top: -50px;
+  min-height: 350px;
+}
+.join-card {
+  margin-top: 150px;
+  background: white;
+  width: 100%;
+  text-align: center;
+  padding: 50px;
+}
+.join-card h4, .card-wrapper h4 {
+  font-weight: 800;
+  color: #1E0E62;
+}
+.join-us {
+  margin: 50px 0;
+}
+.join-us .role-card{
+  padding: 30px;
+}
+.welcome-wrapper p {
+  color: #151439;
+  opacity: 40%;
+}
+.stat-card, .role-card {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.stat-card .numbers, .role-card .numbers {
+  font-weight: 800;
+  color: #1E0E62;
+  opacity: 100%;
+}
+.role-card img {
+  max-width: 60px;
+  margin-bottom: 20px;
+}
+.register-btn {
+  background: #3C58EB;
+  border-radius: 9.5245px;
+  color: #FFFFFF !important;
+}
+@media only screen and (max-width: 530px) {
+  .join-card {
+    position: relative;
+    top: 320px;
+  }
+}
+@media only screen and (max-width: 488px) {
+  .join-card {
+    position: relative;
+    top: 450px;
+  }
+}
