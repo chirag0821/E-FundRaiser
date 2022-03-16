@@ -16,7 +16,9 @@ Users = get_user_model()
 
 # Create your views here.
 
-
+def local(request):
+    return redirect('/welcome')
+    
 def register(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -44,7 +46,7 @@ def login(request):
         if user is not None:
             auth_login(request,user)
             messages.success(request,"Successfully Logged In")
-            return redirect('/welcome')
+            return redirect('/home')
         else:
             messages.error(request,"Wrong credentials In")
             return redirect('/login')
@@ -56,7 +58,7 @@ def logout(request):
     messages.success(request,"Succesfully Logged Out")
     return redirect('/login')
 
-
+@login_required(login_url='/login')
 def new_startup(request):
     return render(request, 'new_startup.html')    
 
@@ -64,10 +66,11 @@ def new_startup(request):
 def faq(request):
     return render(request, 'faq.html')
 
-@login_required(login_url='/login')
 def welcome(request):
     return render(request, 'landing_page.html')
 
+
+@login_required(login_url='/login')
 def home(request):
     startups = Startups.objects.all()
     for s in startups:
@@ -79,6 +82,7 @@ def home(request):
 
     return render(request, 'home.html',{'startups':startups})
 
+@login_required(login_url='/login')
 def register_startup(request):
     if request.method == 'POST':  
      # request.FILES:
@@ -114,21 +118,23 @@ def register_startup(request):
         
         for document in documents:
             Uploads(startup=new_startup, type="document", file=document).save()
-
+        messages.success(request,"Your startup registered succesfully")
         return redirect('/')
 
+@login_required(login_url='/login')
 def investors(request):
     investments = Investments.objects.exclude(user_id = None)
     return render(request, 'investors.html', {'investments': investments})
 
 
-
+@login_required(login_url='/login')
 def account(request):
     user = UseUsers.objects.filter(user=request.user).first()
     if(request.method == 'POST'):
         user.name = request.POST.get('uname')
         user.contact_no = request.POST.get('ucontact')
         user.save()
+        messages.success(request,"Your data has been updated succesfully!!")
         
     try:
         name = user.name
@@ -155,10 +161,10 @@ def account(request):
         
     founders = Founders.objects.filter(user = request.user)
     investments = Investments.objects.filter(user = request.user)
-    
     return render(request, 'account.html',{'name':name, 'phone':phone,'founders': founders,'investments': investments})
 
 # /startup?id=<id>
+@login_required(login_url='/login')
 def startup(request):
     try:
         startup = Startups.objects.get(id=request.GET['id'])
@@ -167,10 +173,10 @@ def startup(request):
     except Exception:
         return redirect('/')
 
-
 def about_us(request):
     return render(request, 'about_us.html')
 
+@login_required(login_url='/login')
 def invest(request):
     try:
         startup = Startups.objects.get(id=request.POST.get('startup_id'))
